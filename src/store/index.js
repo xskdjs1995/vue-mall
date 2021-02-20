@@ -9,7 +9,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state:{
-        name:'liu'
+        name:'liu',
+        categories:[]
     },
     mutations,
     actions,
