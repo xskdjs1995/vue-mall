@@ -1,9 +1,16 @@
 import { request } from '@/network/axios'
 export default {
-
+    // ajax获得目录数据
    async getCategoriesAction(context,playload){
         console.log('请求目录的action',playload);
-        const response =  await request({url:'/categories'});
+        let response 
+        try {
+            response =  await request({url:'/categories'});
+        } catch (error) {
+            console.log("数据请求失败,尝试在项目目录下执行", "npm run jsonserve");
+            console.log(error.message)
+        }
+        
         console.log('异步的结果',response);
 
         context.commit({

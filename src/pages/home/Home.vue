@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import Demo from "@/components/Demo";
+import Demo from "@/components/demo/Demo";
 import NavSearch from "@/components/home/NavSearch";
 import Categories from "@/components/home/Categories";
 export default {
@@ -58,9 +58,12 @@ export default {
     test() {
       console.log(111);
       console.log(this.$store.state.categories);
+
     },
   },
   created() {
+    // 分发请求 到action
+
     this.$store.dispatch("getCategoriesAction", 1);
   },
 };

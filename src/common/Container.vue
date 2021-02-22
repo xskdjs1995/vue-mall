@@ -38,5 +38,6 @@ export default {
   color: #333;
   text-align: center;
   min-height: 100%;
+  padding: 0;
 }
 </style>

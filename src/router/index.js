@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+//懒加载组件
  const Home = () => import('@/pages/home/Home')
  const Cart = () => import('@/pages/cart/Cart')
  const Detail = () => import('@/pages/detail/Detail')
@@ -31,6 +32,11 @@ const routes = [
   {
     path: '/detail',
     component: Detail
+  },
+  {
+    path: '/detail/:classid',
+    component: Detail,
+    props: true
   },
   //   {
 //     path: '/category',

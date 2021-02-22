@@ -1,6 +1,6 @@
 <template>
     <div class="header">
-          <div>首页</div>
+          <div @click="gotoHome">首页</div>
           <div class="header-right" @click="handlelogin">
             <el-avatar
               src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"
@@ -17,6 +17,9 @@ export default {
 
     }
   },methods: {
+    gotoHome(){
+      this.$router.push('/home'); 
+    },
     handlelogin() {
       console.log("点击了头像");
     },

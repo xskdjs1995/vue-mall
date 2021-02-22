@@ -57,6 +57,7 @@ nav {
   background-color: #fff;
   display: flex;
   justify-content: space-between;
+  padding:0 20px;
 }
 .left {
   display: flex;

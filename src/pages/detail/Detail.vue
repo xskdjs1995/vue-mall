@@ -9,8 +9,12 @@
 <script>
 export default {
   name: "Detail",
+  props:['classid'],
   data() {
     return {};
+  },
+  updated() {
+    console.log(this.classid);
   },
   methods: {
     handleStore() {
