@@ -14,10 +14,16 @@
         </el-carousel>
 
         <div class="category">
-          <Categories :categoryList="this.$store.state.categories" :list="list"></Categories>
-          </div>
-        <Demo></Demo>
-        <button @click="test">获得数据</button>
+          <Categories
+            :categoryList="this.$store.state.categories"
+            :list="list"
+          ></Categories>
+        </div>
+        <!-- 下面是练习的例子 -->
+        <!-- <div>
+          <button @click="test">获得数据</button>
+        </div> -->
+        
       </div>
     </section>
     <!-- 主页的下半部分 目录 category   end -->
@@ -31,20 +37,19 @@
 </template>
 
 <script>
-import Demo from "@/components/demo/Demo";
+// import Demo from "@/components/demo/Demo";
 import NavSearch from "@/components/home/NavSearch";
 import Categories from "@/components/home/Categories";
 export default {
   name: "Home",
   components: {
-    Demo,
+    // Demo,
     NavSearch,
     Categories,
   },
   data() {
     return {
-
-      list:[2],
+      list: [2],
       // categories:this.$store.state.categories,
       items: [
         "https://res.vmallres.com/pimages//pages/picImages/71845031631613054817.jpg",
@@ -58,7 +63,6 @@ export default {
     test() {
       console.log(111);
       console.log(this.$store.state.categories);
-
     },
   },
   created() {
@@ -92,7 +96,7 @@ export default {
   /* background-color: black; */
 }
 /* 为啥在组件里不起作用 在调用组件的地方使用可以起效  start*/
-/* 作用域 */
+/* 原因就是作用域 */
 .inputsearch input {
   border-radius: 30px;
 }

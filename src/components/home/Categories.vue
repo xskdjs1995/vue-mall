@@ -16,15 +16,15 @@ export default {
   props: ["categoryList", "list"],
   data() {
     return {
-      classid:1
+      classid: 1,
     };
   },
-  watch:{
-    categoryList(newdata,old){
+  watch: {
+    categoryList(newdata, old) {
       // TODO:  监视数据的变化回调函数
-      console.log("new:",newdata);
-      console.log('old:',old)
-    }
+      console.log("new:", newdata);
+      console.log("old:", old);
+    },
   },
   mounted() {
     console.log("目录的生命周期");
@@ -43,11 +43,16 @@ export default {
       //     classid: 1,
       //   },
       // });
-      const classid = e.pop()
-      console.log(classid)
-      this.$router.push({path: `/detail/${classid}`})
-      // this.$router.push({path:'detail',params: { userId: '123' }})
-      console.log("+++:", e);
+      const dataList = [...e];
+      // 取得数组最后一个值
+      const classid = dataList.pop();
+      this.$router.push({ path: `/detail/${classid}` });
+      // this.$router.push({name:'detail',params: { userId: '123' }})
+
+      // 获取数组的最后一位的方法
+      let [lastindex, ...rest] = e.reverse();
+      console.log(lastindex);
+      console.log(rest);
     },
   },
 };

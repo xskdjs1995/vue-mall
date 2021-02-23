@@ -60,7 +60,7 @@ export default {
   justify-content:space-between;
   align-items: center;
   height:500px;
-  background-color: rgb(124, 77, 77);
+  background-color: rgb(190, 180, 180);
 }
 
 </style>

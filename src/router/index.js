@@ -5,6 +5,7 @@ import VueRouter from 'vue-router'
  const Home = () => import('@/pages/home/Home')
  const Cart = () => import('@/pages/cart/Cart')
  const Detail = () => import('@/pages/detail/Detail')
+ const Demo = ()=>import('components/demo/Demo')
  
 // 1.安装插件
 Vue.use(VueRouter)
@@ -37,7 +38,11 @@ const routes = [
     path: '/detail/:classid',
     component: Detail,
     props: true
-  },
+  },{
+    path: '/demo',
+    component: Demo,
+    props: true
+  }
   //   {
 //     path: '/category',
 //     component: Category

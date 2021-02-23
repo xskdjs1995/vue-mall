@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve &",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "json_server": "json-server --watch --port 80 db.json &",
+    "json_server": "json-server --watch mock/db.js --routes mock/routes.json --port 80",
     "start": "concurrently \"npm run json_server\" \"npm run serve\" "
   },
   "dependencies": {
@@ -24,6 +24,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "mockjs": "^1.1.0",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {

@@ -1,0 +1,11 @@
+npm install mockjs --save-dev
+npm install -g json-server
+
+修改数据先在db.js中写好导出来
+然后在路由里面使用
+
+"json_server": "json-server --watch mock/db.js --routes mock/routes.json --port 80",
+    "start": "concurrently \"npm run json_server\" \"npm run serve\" "
+
+
+    之后还可以设置代理  参考 https://zhuanlan.zhihu.com/p/237438899

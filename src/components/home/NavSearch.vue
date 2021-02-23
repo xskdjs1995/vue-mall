@@ -17,7 +17,7 @@
         >
           <el-menu-item index="/detail">详细</el-menu-item>
           <el-menu-item index="/cart">购物车</el-menu-item>
-          <el-menu-item index="/homesss">未定</el-menu-item>
+          <el-menu-item index="/demo">DEMO</el-menu-item>
           <el-menu-item> </el-menu-item>
         </el-menu>
       </div>
