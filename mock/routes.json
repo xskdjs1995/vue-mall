@@ -1,4 +1,5 @@
 {
-    "/categories": "/categories",
-    "/mockdata":"/mockdata"
-  }
+  "/categories": "/categories", 
+  "/test": "/mock",
+  "/itemlist":"/itemlist"
+}

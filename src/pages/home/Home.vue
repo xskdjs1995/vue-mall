@@ -28,22 +28,22 @@
     </section>
     <!-- 主页的下半部分 目录 category   end -->
 
-    <!-- <span>首页!!</span>
-    <el-button @click="visible = true">Button</el-button>id
-    <el-dialog :visible.sync="visible" title="Hello world">
-      <p>Try Element</p>
-    </el-dialog> -->
+    <main class="itemlist">
+      <Itemlist></Itemlist>
+    </main>
   </div>
 </template>
 
 <script>
 // import Demo from "@/components/demo/Demo";
+import Itemlist from '@/components/itemlist'
 import NavSearch from "@/components/home/NavSearch";
 import Categories from "@/components/home/Categories";
 export default {
   name: "Home",
   components: {
     // Demo,
+    Itemlist,
     NavSearch,
     Categories,
   },
@@ -95,6 +95,20 @@ export default {
   z-index: 2;
   /* background-color: black; */
 }
+
+
+
+/* 商品列表部分的css  —— +++++++++++++++++++++++++=  start */
+.itemlist{
+  display: flex;
+  justify-content: center;
+}
+
+
+/* 商品列表部分的css  —— +++++++++++++++++++++++++=  end */
+
+
+
 /* 为啥在组件里不起作用 在调用组件的地方使用可以起效  start*/
 /* 原因就是作用域 */
 .inputsearch input {
