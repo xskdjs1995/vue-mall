@@ -43,14 +43,15 @@ export default {
       //     classid: 1,
       //   },
       // });
-      const dataList = [...e];
+      //const dataList = [...e];
       // 取得数组最后一个值
-      const classid = dataList.pop();
-      this.$router.push({ path: `/detail/${classid}` });
+      //const classid = dataList.pop();
+      //this.$router.push({ path: `/detail/${classid}` });
       // this.$router.push({name:'detail',params: { userId: '123' }})
 
       // 获取数组的最后一位的方法
       let [lastindex, ...rest] = e.reverse();
+       this.$router.push({ path: `/detail/${lastindex}` });
       console.log(lastindex);
       console.log(rest);
     },

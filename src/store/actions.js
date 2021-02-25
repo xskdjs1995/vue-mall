@@ -18,6 +18,18 @@ export default {
             data:response.data
         })
    },
+   async getItemListAction(context,payload){
+
+        let res  
+        try {
+            res = await request({url:'/itemlist'})
+            console.log(res);
+        } catch (err) {
+            console.log(err)
+            console.log(payload);
+        }
+        context.commit({type:'getitemList',data:res.data})
+   },
 
     // 这个是练习的
    async testAction(context, payload) {

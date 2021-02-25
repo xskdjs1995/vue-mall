@@ -4,7 +4,11 @@ export default {
         // categories
         state.categories =payload.data
     },
-
+    getitemList(state,payload){
+        console.log("商品列表",payload);
+        state.itemList = payload.data
+    },
+// 以下是测试demo
     test(state, payload) {
         // state
         // payload
