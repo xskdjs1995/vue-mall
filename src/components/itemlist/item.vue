@@ -31,7 +31,7 @@ export default {
       desc: String,
       imgsrc: String,
       alt: String,
-      price: String,
+      price: Number,
     },
   },
   data() {

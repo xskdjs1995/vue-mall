@@ -457,7 +457,9 @@ const mockItem = Mock.mock({
         "desc": ` @ctitle(7, 10)`,
         "imgsrc": random.image('400x400', '#fff', '#777', 'Mock.商品'),
         "alt": '@cword("【订金预订】HUAWEI FreeBuds 4i 真无线耳机（陶瓷白）主动降噪 通话降噪 环境音透传 10小时连续播放 快充长续航 纯净音质", 20, 27)',
-        "price|1-500": 100
+        "price|1-500": 100,
+        "id": '@id()',
+        "classId":`@character("a")`
     }]
 })
 const allItem = [...itemList, ...mockItem.item];

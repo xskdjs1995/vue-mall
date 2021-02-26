@@ -36,6 +36,10 @@ export default {
   },
   methods: {
     pickName(e) {
+      //获取数组的最后一位的方法
+      let [lastindex] = [...e].reverse();
+      this.$router.push({ path: `/detail/${lastindex}` });
+      console.log(lastindex);
       //TODO:只有在命名路由可以这样不用传递路径只需要传递name 和params
       // this.$router.push({
       //   path: "/detail",
@@ -43,17 +47,17 @@ export default {
       //     classid: 1,
       //   },
       // });
-      //const dataList = [...e];
       // 取得数组最后一个值
+      //const dataList = [...e];
       //const classid = dataList.pop();
       //this.$router.push({ path: `/detail/${classid}` });
       // this.$router.push({name:'detail',params: { userId: '123' }})
 
-      // 获取数组的最后一位的方法
-      let [lastindex, ...rest] = e.reverse();
-       this.$router.push({ path: `/detail/${lastindex}` });
-      console.log(lastindex);
-      console.log(rest);
+      // 深拷贝数据
+      //  let nodelist =  JSON.parse(JSON.stringify(e))
+      //   let[lastnode,...rest]=nodelist.reverse()
+      //   this.$router.push({ path: `/detail/${lastnode}` });
+      //   console.log(rest);
     },
   },
 };

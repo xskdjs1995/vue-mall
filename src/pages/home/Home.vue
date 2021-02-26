@@ -13,13 +13,13 @@
           </el-carousel-item>
         </el-carousel>
         <!-- 轮播图   end -->
-        <!-- 商品目录导航  start -->
+        <!-- 商品级联目录导航  start -->
         <div class="category">
           <Categories
             :categoryList="this.$store.state.categories"
             :list="list"
           ></Categories>
-          <!-- 商品目录导航  end -->
+          <!-- 商品级联目录导航  end -->
         </div>
       </div>
     </section>
