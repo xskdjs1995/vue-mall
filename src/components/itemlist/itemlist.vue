@@ -1,9 +1,9 @@
 <template>
   <div class="Itemlist">
     <!-- 可以添加其他布局 slot扩展 -->
-    <item v-for="item in itemList" :key="item.title" :item="item"> </item>
+    <item @click.native="toDetailPage(item)" v-for="item in itemList" :key="item.title" :item="item" > </item>
   </div>
-</template>
+</template>e
 
 <script>
 import item from "@/components/itemlist/item";
@@ -15,7 +15,12 @@ export default {
       itemList: [{}],
     };
   },
- 
+ methods: {
+   toDetailPage(item){
+     console.log(item);
+    this.$router.push({ path: 'detail', query:{...item}})
+   }
+ },
   created() {
     // 数据在home页面dispatch  然后在
 
@@ -27,13 +32,15 @@ export default {
      * 4 页面通过 watch 监视数据的变化 
      */
     // this.$store.dispatch("getItemListAction", this.payload);
-    // this.itemList = this.$store.state.itemList
+    this.itemList = this.$store.state.itemList
   },
-   watch: {
-    '$store.state.itemList': function () {
-      this.itemList = this.$store.state.itemList
-    }
-  }
+  // TODO 记录  当store中使用响应式的方式修改数据 可以直接在created中获得数据
+  // 否则用下面的watch的方式监听数据
+  //  watch: {
+  //   '$store.state.itemList': function () {
+  //     this.itemList = this.$store.state.itemList
+  //   }
+  // }
  
 };
 </script>

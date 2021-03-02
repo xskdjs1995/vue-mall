@@ -399,57 +399,74 @@ const itemList = [
         "desc": "预订享50元优惠 ",
         "imgsrc": "https://res0.vmallres.com/pimages//product/6941487207756/428_428_A6A30621B8088CBBAF2D831A44CA9E945FEB6E9B64A1E201mp.png",
         "alt": "UAWEI FreeBuds 4i 真无线耳机（陶瓷白）主动降噪 通【订机（陶瓷白）主动降噪 通话降噪 环境音透传 10小时连续播放 快充长续航 纯净音质",
-        "price": "499"
+        "price": "499",
+        "id": '820000200104258216',
+        "classId":`1`
     },
     {
         "title": "耐克专业运动耳机",
         "desc": "预订享10元优惠 ",
         "imgsrc": "https://res0.vmallres.com/pimages//product/6941487211210/428_428_FAD19670648EDFCF959E7322E54A1A758BE0CD66A83455C6mp.png",
         "alt": "【订金预订】HUAWEI FreeBuds 4i 真无线耳机（陶瓷白）主动降噪 通话降噪 环境音透传 10小时连续播放 快充长续航 纯净音质",
-        "price": "499"
+        "price": "499",
+        "id": '820000200104258215',
+        "classId":`2`
     },
     {
         "title": "阿根廷唐克里斯将军红酒",
         "desc": "预订享50元优惠 ",
         "imgsrc": "https://res0.vmallres.com/pimages//product/7798078004213/428_428_D574ABBEA5D58BBF7E4E06D853D85B1A0A85E6F542F1A58Emp.png",
         "alt": "【订金预订】HUAWEI FreeBuds 4i 真无线耳机（陶瓷白）主动降噪 通话降噪 环境音透传 10小时连续播放 快充长续航 纯净音质",
-        "price": "499"
+        "price": "499",
+        "id": '820000200104258214',
+        "classId":`3`
     },
     {
         "title": "HUAWEI WATCH FIT",
         "desc": "预订享50元优惠 ",
         "imgsrc": "https://res0.vmallres.com/pimages//product/6972453167255/428_428_5A0F299CEB8FD02EC475984195F40859A18690A29D3F4641mp.png",
         "alt": "【订金预订】HUAWEI FreeBuds 4i 真无线耳机（陶瓷白）主动降噪 通话降噪 环境音透传 10小时连续播放 快充长续航 纯净音质",
-        "price": "499"
+        "price": "499",
+        "id": '820000200104258213',
+        "classId":`4`
     },
     {
         "title": "京瓷陶瓷保温杯",
         "desc": "预订享50元优惠 ",
         "imgsrc": "https://res0.vmallres.com/pimages//product/6941487210978/428_428_9B6917F54FD19C85873D683A0118C9EE61CF70B260CE761Bmp.png",
         "alt": "【订金预订】HUAWEI FreeBuds 4i 真无线耳机（陶瓷白）主动降噪 通话降噪 环境音透传 10小时连续播放 快充长续航 纯净音质",
-        "price": "499"
+        "price": "499",
+        "id": '820000200104258211',
+        "classId":`1`
     },
     {
         "title": "HUAWEI Mate 30E Pro 5G",
         "desc": "预订享50元优惠 ",
         "imgsrc": "https://res0.vmallres.com/pimages//product/4960664844470/428_428_3DEF6182F6A206E4C8966FD1AE9CB52A8D712B1F3EDFB5DDmp.png",
         "alt": "【订金预订】HUAWEI FreeBuds 4i 真无线耳机（陶瓷白）主动降噪 通话降噪 环境音透传 10小时连续播放 快充长续航 纯净音质",
-        "price": "499"
+        "price": "499",
+        "id": '920000230104258217',
+        "classId":`2`
     },
     {
         "title": "苹果 MAX 4i 真无线耳机",
         "desc": "预订享50元优惠 ",
         "imgsrc": "https://res0.vmallres.com/pimages//product/6941487210305/428_428_75FA66A821D5CADED8F21F1F417E9E8AC3E42FFCFCBAD775mp.png",
         "alt": "【订金预订】HUAWEI FreeBuds 4i 真无线耳机（陶瓷白）主动降噪 通话降噪 环境音透传 10小时连续播放 快充长续航 纯净音质",
-        "price": "499"
+        "price": "499",
+        "id": '922002200104258217',
+        "classId":`3`
     },
     {
         "title": "小米 为发烧 4i 真无线耳机",
         "desc": "预订享50元优惠 ",
         "imgsrc": "https://res0.vmallres.com/pimages//product/6927819503451/428_428_1BF03DFFDA537B9EC251DB7555CA8910CA1926323AB53E85mp.png",
         "alt": "【订金预订】HUAWEI FreeBuds 4i 真无线耳机（陶瓷白）主动降噪 通话降噪 环境音透传 10小时连续播放 快充长续航 纯净音质",
-        "price": "499"
-    }
+        "price": "499" ,
+        "id": '920002200104258217',
+        "classId":`4`
+    },
+   
 ]
 const mockItem = Mock.mock({
     "item|10": [{

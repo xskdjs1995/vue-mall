@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+
 //懒加载组件
  const Home = () => import('@/pages/home/Home')
  const Cart = () => import('@/pages/cart/Cart')
  const Detail = () => import('@/pages/detail/Detail')
  const Demo = ()=>import('components/demo/Demo')
+ const Goods = ()=>import('@/pages/goods/Goods')
  
 // 1.安装插件
 Vue.use(VueRouter)
@@ -32,7 +34,8 @@ const routes = [
   },
   {
     path: '/detail',
-    component: Detail
+    component: Detail,
+    props: true
   },
   {
     path: '/detail/:classid',
@@ -42,7 +45,12 @@ const routes = [
     path: '/demo',
     component: Demo,
     props: true
+  },{
+    path: '/goods',
+    component: Goods,
+    props: true
   }
+
   //   {
 //     path: '/category',
 //     component: Category
@@ -52,6 +60,8 @@ const router = new VueRouter({
   routes,
   mode: 'history'
 })
-
+router.afterEach(() => {
+  window.scrollTo(0,0);
+})
 
 export default router
