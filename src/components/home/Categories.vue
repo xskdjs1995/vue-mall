@@ -38,7 +38,13 @@ export default {
     pickName(e) {
       //获取数组的最后一位的方法
       let [lastindex] = [...e].reverse();
-      this.$router.push({ path: `/detail/${lastindex}` });
+      let radomClassId = e.length > 2 ? 1 : 2;
+      // this.$router.push({ path: `/goods/${lastindex}` });
+      // this.$router.push({ path: `/goods` });
+      this.$router.push({
+        path: "goods",
+        query: { navInfoList: e, classId: radomClassId },
+      });
       console.log(lastindex);
       //TODO:只有在命名路由可以这样不用传递路径只需要传递name 和params
       // this.$router.push({
