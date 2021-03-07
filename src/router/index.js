@@ -60,6 +60,7 @@ const router = new VueRouter({
   routes,
   mode: 'history'
 })
+// 路由守卫相当于拦截器
 router.afterEach(() => {
   window.scrollTo(0,0);
 })

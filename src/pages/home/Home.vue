@@ -7,7 +7,7 @@
     <section>
       <div class="mainBottom">
         <!-- 轮播图   start -->
-        <el-carousel height="550px">
+        <el-carousel height="550px" >
           <el-carousel-item v-for="item in items" :key="item">
             <img :src="item" :alt="item" />
           </el-carousel-item>

@@ -1,10 +1,15 @@
 <template>
   <div class="">
+  
     <!-- 父子组件之间传值的方法 -->
     <div class="fragment">
       <div>这是父组件 
         来自子组件的{{datafromfather}}
       </div>
+      <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
+         <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+    <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+  </el-checkbox-group>
       <children foo='我是通过prop传递的' @event="getParent"></children>
        <div>计算属性: "{{ add }}"</div>
      
@@ -29,13 +34,20 @@
 
 <script>
 import Children from './Children'
+const cityOptions = ['上海', '北京', '广州', '深圳'];
 export default {
   name: "Demo",
   data() {
     return {
       id: 2,
       num:6,
-      datafromfather:'222'
+      datafromfather:'222',
+
+
+        checkAll: false,
+        checkedCities: ['上海', '北京'],
+        cities: cityOptions,
+        isIndeterminate: true
     };
   },
   computed:{
@@ -66,7 +78,16 @@ export default {
     handlebyaction(){
       console.log("点击按钮通过dispatch -> action  ->  commit ->  mutation");
       this.$store.dispatch('testAction',{name:'shu'})
-    }
+    },
+    handleCheckAllChange(val) {
+        this.checkedCities = val ? cityOptions : [];
+        this.isIndeterminate = false;
+      },
+      handleCheckedCitiesChange(value) {
+        let checkedCount = value.length;
+        this.checkAll = checkedCount === this.cities.length;
+        this.isIndeterminate = checkedCount > 0 && checkedCount < this.cities.length;
+      }
   },
 };
 </script>
