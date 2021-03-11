@@ -87,48 +87,172 @@
             :min="1"
             label="描述文字"
           ></el-input-number>
-          <el-button type="warning" @click="addCar">添加购物车</el-button>
+          <el-button type="warning" @click="addCar(itemData, orderInfo)"
+            >添加购物车</el-button
+          >
           <el-button type="danger" @click="buyNow">立即购买</el-button>
         </div>
       </div>
     </section>
-    <div class="main-info">
-      主要的详细图片等等
-    </div>
+    <div class="main-info">主要的详细图片等等</div>
   </main>
 </template>
 
 <script>
+import { request } from "@/network/axios";
 export default {
   name: "Detail",
   props: ["item"],
   data() {
     return {
-      itemData: {
-      },
+      itemData: {},
       orderInfo: {
         num: 1,
       },
     };
   },
   created() {
-    console.log(this.$route.query)
+    console.log(this.$route.query);
     // Vue.set(itemData, key, value)
-    this.itemData =  this.$route.query
+    this.itemData = this.$route.query;
   },
   updated() {
-    console.log(this.classid);
-    console.log(this.props)
+    // console.log(this.classid);
+    // console.log(this.props);
   },
   methods: {
-    addCar(){
+    async addCar(itemData, orderInfo) {
       // console.log("");
-      alert("添加了购物车")
+      alert("添加了购物车");
+      let userId = 200001;
+
+      //1 api 查询订单数据 (userId 为条件)
+      // 应该交给后台数据处理数据信息前台 提交用户id 和添加商品的id
+      //2 如果有且api返回的数据不包括该条 id 将路由传递的数据 merge到 数组中
+      //3 如果没有则直接将数据push
+      // 调取api insert 订单表
+      let orderResponse;
+      try {
+        // 模拟查询用户 userId为100001的数据
+        orderResponse = await request({
+          url: "/orders",
+          params: {
+            userId,
+          },
+        });
+      } catch (error) {
+        console.log(
+          "订单数据请求失败,联系970654226@qq.com 或尝试在项目目录下执行",
+          "npm run jsonserve"
+        );
+        console.log(error.message);
+      }
+      //
+      console.log(orderInfo);
+      console.log(orderResponse, orderResponse.data.length);
+      //  当该用户没有过订单的时候
+      if (orderResponse.data.length === 0) {
+        console.log(itemData);
+        // insert;
+        let insertRes = await request({
+          method: "post",
+          url: "/orders",
+          data: {
+            // id: 100003,
+            userId,
+            orderInfoList: [
+              {
+                id: itemData.id,
+                imgsrc: itemData.imgsrc,
+                alt: itemData.alt,
+                price: itemData.price,
+                title: itemData.title,
+                num: orderInfo.num,
+              },
+            ],
+          },
+        });
+        console.log(insertRes);
+        // else 用户有过订单
+        // 而且商品id 和本商品id相同的情况 只更新数量或类型 本次只有数量
+      } else if (
+        orderResponse.data[0].orderInfoList.filter((e) => e.id === itemData.id)
+          .length !== 0
+      ) {
+        let currentData = orderResponse.data[0].orderInfoList.filter(
+          (e) => e.id === itemData.id
+        )[0];
+        let orderInfoList = orderResponse.data[0].orderInfoList.map((e) => {
+          if (e.id !== itemData.id) {
+            return e;
+          } else {
+            return {
+              id: itemData.id,
+              imgsrc: itemData.imgsrc,
+              alt: itemData.alt,
+              price: itemData.price,
+              title: itemData.title,
+              num: orderInfo.num + currentData.num,
+            };
+          }
+        });
+        console.log("进入到更新数字部分", currentData);
+        let updateNumRes = await request({
+          method: "patch",
+          url: `/orders/${orderResponse.data[0].id}`,
+          data: {
+            // id: 100003,
+            userId,
+            orderInfoList,
+          },
+        });
+        console.log(updateNumRes);
+      } else {
+        // else 用户有过订单
+        // 但是不是本商品 直接更新orderInfoList push一条新数据
+        let updateRes = await request({
+          method: "patch",
+          url: `/orders/${orderResponse.data[0].id}`,
+          data: {
+            // id: 100003,
+            userId,
+            orderInfoList: [
+              ...orderResponse.data[0].orderInfoList,
+              {
+                id: itemData.id,
+                imgsrc: itemData.imgsrc,
+                alt: itemData.alt,
+                price: itemData.price,
+                title: itemData.title,
+                num: orderInfo.num,
+              },
+            ],
+          },
+        });
+        console.log(updateRes.data);
+      }
+
+      // let a = response.data[0].orderInfoList.filter(
+      //   (orderInfo) => orderInfo.id === itemData.id
+      // );
+      // if (a.length === 0) {
+      //   console.log("todo");
+      // } else {
+      //   // update
+      //   alert("更新了order");
+      // }
+
+      // 跳转到购物车
+
+      // this.$router.push({
+      //   path: "cart",
+      //   query: { itemData, orderInfo },
+      // });
     },
-     buyNow(){
+    buyNow() {
       // console.log("");
-      alert("立即购买")
-    }
+      alert("立即购买");
+    },
   },
 };
 </script>
@@ -152,7 +276,7 @@ export default {
 .left img {
   width: 450px;
   height: 450px;
-  background-color: blanchedalmond;
+  /* background-color: blanchedalmond; */
 }
 .small-img {
   width: 60px !important;
@@ -251,8 +375,8 @@ export default {
   width: 114px;
 }
 /* ========================主要详细信息包括图片等 */
-.main-info{
-    height: 880px;
+.main-info {
+  height: 880px;
   margin: 20px 0;
   background-color: burlywood;
 }

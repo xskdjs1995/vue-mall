@@ -3,6 +3,7 @@
 会先启动 json-server 然后再启动 项目
 concurrently 这个npm包没有写到packagejson 如果报错 全局安装这个包
 npm install -g concurrently
+https://www.cnblogs.com/fly_dragon/p/9150732.html
 
 作为学习vue的练手小项目demo
 

@@ -1,5 +1,6 @@
 {
   "/categories": "/categories", 
   "/test": "/mock",
-  "/itemlist":"/itemlist"
+  "/itemlist":"/itemlist",
+  "/orders":"/orders"
 }
