@@ -8,6 +8,7 @@ import VueRouter from 'vue-router'
  const Detail = () => import('@/pages/detail/Detail')
  const Demo = ()=>import('components/demo/Demo')
  const Goods = ()=>import('@/pages/goods/Goods')
+ const Login = ()=>import('@/pages/login/Login')
  
 // 1.安装插件
 Vue.use(VueRouter)
@@ -16,7 +17,16 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '',
-    redirect: '/home'
+    redirect: '/login'
+  },
+  // {
+  //   path: '',
+  //   redirect: '/home'
+  // },
+  {
+    path: '/login',
+    component: Login,
+    meta:[1,2,3]
   },
   {
     path: '/home',
@@ -60,8 +70,14 @@ const router = new VueRouter({
   routes,
   mode: 'history'
 })
+router.beforeEach((to, from, next)=>{
+  console.log(to);
+  console.log(from);
+  next();
+})
 // 路由守卫相当于拦截器
 router.afterEach(() => {
+
   window.scrollTo(0,0);
 })
 

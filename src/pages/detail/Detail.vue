@@ -252,6 +252,7 @@ export default {
     buyNow() {
       // console.log("");
       alert("立即购买");
+    
     },
   },
 };

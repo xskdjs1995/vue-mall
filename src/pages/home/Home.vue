@@ -73,6 +73,7 @@ export default {
     // 分发请求 到action
     this.$store.dispatch("getCategoriesAction", 1);
     this.$store.dispatch("getItemListAction",this.payload)
+        console.log(  this.$route);
   },
   updated() {
     console.log(this.$store.state.itemList)
